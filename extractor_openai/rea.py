@@ -10,7 +10,7 @@ class Rea:
 
     def __init__(self, api_key: Optional[str]) -> Optional[None]:
         self.__api_key = api_key
-        print("Initialized")
+        # print("Initialized")
 
     def extractor_obj(self, texto: Optional[str]) -> Optional[str]:
         client = OpenAI(api_key=self.__api_key)
@@ -47,8 +47,8 @@ class Rea:
     def extractor_met(self, texto: Optional[str]) -> Optional[str]:
         client = OpenAI(api_key=self.__api_key)
 
-        response = client.completions.create(model="gpt-3.5-turbo-instruct",
-                                             prompt = f"Por favor, proporciona una lista de las siguientes entidades nombradas presentes en el texto: Métodos de investigación, Metodología de investigación y Técnicas de investigación. Los criterios que definen cada entidad son los siguientes: - Métodos de investigación: Enfoques generales utilizados para obtener conocimiento en un área de estudio. - Metodología de investigación: Principios y procedimientos que guían el proceso de investigación. - Técnicas de investigación: Herramientas utilizadas para recopilar y analizar datos. Si no encuentras la entidad en el texto, no devuelvas nada. Si hay entidades repetidas, inclúyelas con su texto y entidad. Entrega la respuesta con el texto y la entidad separados por comas dentro de paréntesis, donde el primer elemento sea el texto y el segundo la entidad. Por ejemplo: (Enfoque cuantitativo, Métodos de investigación)(Estudio de caso, Metodología de investigación)(Entrevistas, Técnicas de investigación). Texto: '{texto}'",
+        response = client.completions.create(model="gpt-4",
+                                             prompt=f"Por favor, proporciona una lista de las siguientes entidades nombradas presentes en el texto: Métodos de investigación, Metodología de investigación y Técnicas de investigación. Los criterios que definen cada entidad son los siguientes: - Métodos de investigación: Enfoques generales utilizados para obtener conocimiento en un área de estudio. - Metodología de investigación: Principios y procedimientos que guían el proceso de investigación. - Técnicas de investigación: Herramientas utilizadas para recopilar y analizar datos. Si no encuentras la entidad en el texto, no devuelvas nada. Si hay entidades repetidas, inclúyelas con su texto y entidad. Entrega la respuesta con el texto y la entidad separados por comas dentro de paréntesis, donde el primer elemento sea el texto y el segundo la entidad. Por ejemplo: (Enfoque cuantitativo, Métodos de investigación)(Estudio de caso, Metodología de investigación)(Entrevistas, Técnicas de investigación). Texto: '{texto}'",
                                              max_tokens=1024,
                                              n=1,
                                              stop=None,

@@ -25,6 +25,4 @@ print(F"--> Esta es la entidades poblacion y tem: {endidades_pob_tem}\n")
 # print(F"--> Metodología : {metodologia}")
 
 print("Las entidades de metodología son")
-
-
 print(endidades_met)
